@@ -1,15 +1,90 @@
 import styled from "styled-components";
 import { Routes } from "@config/routes";
+import Link from "next/link";
 
 const Header = styled.header`
   width: 100%;
-  height: 80px;
   padding: 0 2rem;
   box-sizing: border-box;
+
+  background: white;
+`;
+
+const Container = styled.div`
+  box-sizing: border-box;
+  height: 80px;
+  width: 1280px;
+  margin: auto;
   display: flex;
+  padding: 0 32px;
   justify-content: space-between;
   align-items: center;
-  background: white;
+`;
+
+// Mine
+// const Navbar = styled.ul`
+//   display: flex;
+//   list-style:none;
+// `
+
+// const NavItem = styled.li`
+
+// `
+
+// const NavLink = styled.a`
+// text-decoration:none;
+// padding:32px;
+// color:#667085;
+// `
+
+// const DashboardButton = styled.button`
+//   background-color:#7F56D9;
+//   border-radius:8px;
+//   padding:10px 18px;
+//   box-sizing: border-box;
+//   align-items: center;
+//   width: 165px;
+//   height: 44px;
+//   border: 1px solid #7F56D9;
+// `
+
+// const DashboardLink  = styled.a`
+//   color:white;
+//   text-decoration:none;
+//   font-family: 'Inter';
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   line-height: 24px;
+//   display :flex;
+//   align-items: center;
+//   top:10px;
+//   left:18px;
+// `
+
+// His
+const NavItems = styled.ul`
+  display: flex;
+  list-style: none;
+`;
+
+const NavItem = styled.li`
+  padding: 0 16px;
+`;
+
+const NavLink = styled.a`
+  color: #667085;
+  text-decoration: none;
+  font-weight: 500;
+`;
+
+const DashboardButton = styled.a`
+  padding: 0px 18px;
+  background-color: #7f56d9;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  line-height: 44px;
 `;
 
 const ContactButton = styled.button`
@@ -32,9 +107,44 @@ const IssuesPage = () => {
   return (
     <div>
       <Header>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/icons/logo-large.svg" alt="Prolog logo" />
-        <a href={Routes.projects}>Dashboard</a>
+        <Container>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/icons/logo-large.svg" alt="Prolog logo" />
+
+          {/* Mine */}
+          {/* <nav>
+          <Navbar>
+            <NavItem><NavLink href="/">Home</NavLink></NavItem>
+            <NavItem><NavLink href="/products">Products</NavLink></NavItem>
+            <NavItem><NavLink href="/documentation">Documentation</NavLink></NavItem>
+            <NavItem><NavLink href="/pricing">Pricing</NavLink></NavItem>
+          </Navbar>
+        </nav> */}
+
+          {/* His */}
+          <nav>
+            <NavItems>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/products">Products</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/documentation">Documentation</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/pricing">Pricing</NavLink>
+              </NavItem>
+            </NavItems>
+          </nav>
+
+          <DashboardButton href={Routes.projects}>
+            Open Dashboard
+          </DashboardButton>
+          {/* <DashboardButton>
+        </DashboardButton> */}
+        </Container>
       </Header>
       <ContactButton
         onClick={() =>
